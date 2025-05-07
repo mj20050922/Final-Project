@@ -25,6 +25,7 @@
 
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             txtName = new TextBox();
             txtAmount = new TextBox();
             txtCategory = new TextBox();
@@ -47,37 +48,43 @@
             // 
             // txtName
             // 
-            txtName.Location = new Point(22, 44);
+            txtName.Location = new Point(14, 28);
+            txtName.Margin = new Padding(2);
             txtName.Name = "txtName";
-            txtName.Size = new Size(165, 32);
+            txtName.Size = new Size(106, 23);
             txtName.TabIndex = 0;
+            txtName.TextChanged += txtName_TextChanged;
             // 
             // txtAmount
             // 
-            txtAmount.Location = new Point(203, 44);
+            txtAmount.Location = new Point(129, 28);
+            txtAmount.Margin = new Padding(2);
             txtAmount.Name = "txtAmount";
-            txtAmount.Size = new Size(110, 32);
+            txtAmount.Size = new Size(71, 23);
             txtAmount.TabIndex = 1;
             // 
             // txtCategory
             // 
-            txtCategory.Location = new Point(324, 44);
+            txtCategory.Location = new Point(206, 28);
+            txtCategory.Margin = new Padding(2);
             txtCategory.Name = "txtCategory";
-            txtCategory.Size = new Size(110, 32);
+            txtCategory.Size = new Size(71, 23);
             txtCategory.TabIndex = 2;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(440, 44);
+            dateTimePicker1.Location = new Point(280, 28);
+            dateTimePicker1.Margin = new Padding(2);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(165, 32);
+            dateTimePicker1.Size = new Size(106, 23);
             dateTimePicker1.TabIndex = 3;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(628, 35);
+            btnAdd.Location = new Point(400, 22);
+            btnAdd.Margin = new Padding(2);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(81, 48);
+            btnAdd.Size = new Size(52, 30);
             btnAdd.TabIndex = 4;
             btnAdd.Text = "新增";
             btnAdd.UseVisualStyleBackColor = true;
@@ -85,9 +92,10 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(715, 35);
+            btnDelete.Location = new Point(455, 22);
+            btnDelete.Margin = new Padding(2);
             btnDelete.Name = "btnDelete";
-            btnDelete.Size = new Size(81, 48);
+            btnDelete.Size = new Size(52, 30);
             btnDelete.TabIndex = 5;
             btnDelete.Text = "刪除";
             btnDelete.UseVisualStyleBackColor = true;
@@ -95,9 +103,10 @@
             // 
             // btnSave
             // 
-            btnSave.Location = new Point(803, 35);
+            btnSave.Location = new Point(511, 22);
+            btnSave.Margin = new Padding(2);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(81, 48);
+            btnSave.Size = new Size(52, 30);
             btnSave.TabIndex = 6;
             btnSave.Text = "儲存";
             btnSave.UseVisualStyleBackColor = true;
@@ -105,9 +114,10 @@
             // 
             // btnCategorySum
             // 
-            btnCategorySum.Location = new Point(891, 35);
+            btnCategorySum.Location = new Point(567, 22);
+            btnCategorySum.Margin = new Padding(2);
             btnCategorySum.Name = "btnCategorySum";
-            btnCategorySum.Size = new Size(110, 48);
+            btnCategorySum.Size = new Size(70, 30);
             btnCategorySum.TabIndex = 7;
             btnCategorySum.Text = "分類統計";
             btnCategorySum.UseVisualStyleBackColor = true;
@@ -116,9 +126,10 @@
             // lblTotal
             // 
             lblTotal.Font = new Font("Microsoft JhengHei UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 136);
-            lblTotal.Location = new Point(22, 446);
+            lblTotal.Location = new Point(14, 279);
+            lblTotal.Margin = new Padding(2, 0, 2, 0);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(440, 50);
+            lblTotal.Size = new Size(280, 46);
             lblTotal.TabIndex = 8;
             lblTotal.Text = "總花費: $0.00";
             // 
@@ -126,19 +137,23 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.Location = new Point(22, 121);
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.Location = new Point(14, 76);
+            dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(979, 288);
+            dataGridView1.Size = new Size(623, 180);
             dataGridView1.TabIndex = 9;
             // 
             // radioIncome
             // 
             radioIncome.AutoSize = true;
-            radioIncome.Location = new Point(116, 45);
+            radioIncome.Location = new Point(74, 28);
+            radioIncome.Margin = new Padding(2);
             radioIncome.Name = "radioIncome";
-            radioIncome.Size = new Size(66, 28);
+            radioIncome.Size = new Size(49, 19);
             radioIncome.TabIndex = 11;
             radioIncome.Text = "收入";
             radioIncome.UseVisualStyleBackColor = true;
@@ -146,9 +161,10 @@
             // radioExpense
             // 
             radioExpense.AutoSize = true;
-            radioExpense.Location = new Point(15, 45);
+            radioExpense.Location = new Point(10, 28);
+            radioExpense.Margin = new Padding(2);
             radioExpense.Name = "radioExpense";
-            radioExpense.Size = new Size(66, 28);
+            radioExpense.Size = new Size(49, 19);
             radioExpense.TabIndex = 10;
             radioExpense.TabStop = true;
             radioExpense.Text = "支出";
@@ -158,9 +174,11 @@
             // 
             groupBox1.Controls.Add(radioIncome);
             groupBox1.Controls.Add(radioExpense);
-            groupBox1.Location = new Point(1008, 19);
+            groupBox1.Location = new Point(641, 12);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(188, 93);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(120, 58);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "類型";
@@ -168,35 +186,38 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(22, 17);
+            label1.Location = new Point(14, 11);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(86, 24);
+            label1.Size = new Size(55, 15);
             label1.TabIndex = 13;
             label1.Text = "項目名稱";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(203, 17);
+            label2.Location = new Point(129, 11);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(48, 24);
+            label2.Size = new Size(31, 15);
             label2.TabIndex = 14;
             label2.Text = "金額";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(324, 17);
+            label3.Location = new Point(206, 11);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(48, 24);
+            label3.Size = new Size(31, 15);
             label3.TabIndex = 15;
             label3.Text = "類別";
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(11F, 24F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1271, 629);
+            ClientSize = new Size(809, 393);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -211,6 +232,7 @@
             Controls.Add(lblTotal);
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
+            Margin = new Padding(2);
             Name = "Form1";
             Text = "記帳程式";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -218,8 +240,8 @@
             groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
-
         }
+
         private Label label1;
         private Label label2;
         private Label label3;
