@@ -16,9 +16,13 @@ namespace 期末專題
         // 自動儲存檔案的路徑
         private string autoSavePath = "autosave.csv";
 
+
+
         public Form1()
         {
             InitializeComponent();
+
+            AutoScaleHelper scaler = new AutoScaleHelper(this);
 
             // 初始化資料表結構
             table = new DataTable();
@@ -34,6 +38,22 @@ namespace 期末專題
 
             // 設定 DataGridView 的格式化事件
             dataGridView1.CellFormatting += dataGridView1_CellFormatting;
+
+            // 設定所有欄位自動調整填滿整個 DataGridView
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // 自動調整欄位標題高度，避免最上面那行顯示不完全
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            // 若有多行或長文字要顯示，啟用自動換行
+            //dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            // 自動依據內容調整行高
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+
+            // 調整選取樣式：與預設樣式保持一致
+            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
+            dataGridView1.DefaultCellStyle.SelectionForeColor = dataGridView1.DefaultCellStyle.ForeColor;
 
             // 如果自動儲存檔案存在，則載入資料
             if (File.Exists(autoSavePath))
@@ -218,9 +238,13 @@ namespace 期末專題
         // DataGridView 格式化事件，用於設定行的背景顏色
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            // 確保 "類型" 欄位存在且目前行索引有效  
             if (dataGridView1.Columns["類型"] != null && e.RowIndex >= 0)
             {
+                // 取得目前行的 "類型" 欄位值  
                 var type = dataGridView1.Rows[e.RowIndex].Cells["類型"].Value?.ToString();
+
+                // 根據 "類型" 設定行的背景顏色  
                 if (type == "收入")
                     dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
                 else if (type == "支出")
@@ -232,6 +256,16 @@ namespace 期末專題
         private void txtName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0) // 確保不是標題行或無效的儲存格
+            {
+                string columnName = dataGridView1.Columns[e.ColumnIndex].HeaderText;
+                MessageBox.Show($"使用者修改了第 {e.RowIndex + 1} 行的 '{columnName}' 欄位。");
+                UpdateTotal(); // 更新總計資訊
+            }
         }
     }
 }

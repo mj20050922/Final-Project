@@ -125,13 +125,13 @@
             // 
             // lblTotal
             // 
-            lblTotal.Font = new Font("Microsoft JhengHei UI", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 136);
+            lblTotal.Font = new Font("Microsoft JhengHei UI", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 136);
             lblTotal.Location = new Point(14, 279);
             lblTotal.Margin = new Padding(2, 0, 2, 0);
             lblTotal.Name = "lblTotal";
-            lblTotal.Size = new Size(280, 46);
+            lblTotal.Size = new Size(784, 46);
             lblTotal.TabIndex = 8;
-            lblTotal.Text = "總花費: $0.00";
+            lblTotal.Text = "收入: $0.00　支出: $0.00　結餘: $0.00";
             // 
             // dataGridView1
             // 
@@ -144,7 +144,7 @@
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(623, 180);
+            dataGridView1.Size = new Size(750, 180);
             dataGridView1.TabIndex = 9;
             // 
             // radioIncome
